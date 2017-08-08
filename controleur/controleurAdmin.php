@@ -20,8 +20,20 @@ class ControleurAdmin{
         $this->ctrlListeBillet = new ControleurListeBillet();
         $this->ctrlAccueil = new ControleurAccueil();
     }
+ /*
+*Détruit la session actuelle
+*/
+   public function detruire(){
+       session_destroy();
+   }
 
-
+/*
+*Ajout d"un attribut $nom pour le nom de l'attribut
+* $valeur pour sa valeur
+*/
+    public function setAttribut($nom, $valeur){
+       $_SESSION[$nom] = $valeur;
+    }
 /*
 *Génére la vue de connexion
 */
@@ -60,3 +72,4 @@ public function connecter($email,$passe){
     }
 
 }
+
