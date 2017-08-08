@@ -1,7 +1,7 @@
 <?php
 
 require_once 'modele/billet.php';
-require_once 'vue/vueAdmin.php';
+require_once 'vue/vue.php';
 require_once 'modele/commentaire.php';
 
 class ControleurSuppr {
