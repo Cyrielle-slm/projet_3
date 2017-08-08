@@ -2,7 +2,7 @@
 
 require_once 'modele/billet.php';
 require_once 'modele/modele.php';
-require_once 'vue/vueAdmin.php';
+require_once 'vue/vue.php';
 
 class ControleurModif {
 private $modif;
@@ -27,7 +27,7 @@ public function __construct(){
 */
  public function modif($idBillet){
         $billet=$this->billet->getBillet($idBillet);
-        $vueAdmin = new VueAdmin( "Modif");
+        $vueAdmin = new Vue( "Modif","Admin");
         $vueAdmin->generer(array('billet'=>$billet));
     }
 
