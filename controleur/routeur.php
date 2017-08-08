@@ -2,8 +2,6 @@
 require_once 'controleurAccueil.php';
 require_once 'controleurBillet.php';
 require_once 'vue/vue.php';
-require_once 'vue/vueAdmin.php';
-require_once 'vue/vueAcc.php';
 require_once 'controleurListeBillet.php';
 require_once 'controleurListeComm.php';
 require_once 'controleurFormAjout.php';
@@ -12,7 +10,6 @@ require_once 'controleurModif.php';
 require_once 'controleurSignale.php';
 require_once 'controleurChapitres.php';
 require_once 'controleurAdmin.php';
-require_once 'controleurSession.php';
 
 class Routeur{
 
@@ -215,7 +212,7 @@ class Routeur{
 /*Affiche la vue Erreur
 */
   private function erreur($msgErreur) {
-    $vue = new Vue("Erreur");
+    $vue = new Vue("Erreur","");
     $vue->generer(array('msgErreur' => $msgErreur));
   }
 }
