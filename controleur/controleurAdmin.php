@@ -1,14 +1,12 @@
 <?
 require_once 'modele/admin.php';
-require_once 'vue/vueAdmin.php';
-require_once 'controleurSession.php';
+require_once 'vue/vue.php';
 require_once 'routeur.php';
 require_once 'controleurListeBillet.php';
 
 
 class ControleurAdmin{
     private $admin;
-    private $sctrlSession;
     private $sctrlListeBillet;
     private $sctrlAccueil;
 
@@ -19,22 +17,16 @@ class ControleurAdmin{
 */
     public function __construct(){
         $this->admin= new Admin();
-        $this->ctrlSession = new ControleurSession();
         $this->ctrlListeBillet = new ControleurListeBillet();
         $this->ctrlAccueil = new ControleurAccueil();
     }
 
-/*
-*Retour de l'objet ctrlSession
-*/
-    public function getSession(){
-      return $this->ctrlSession;
-    }
+
 /*
 *Génére la vue de connexion
 */
 public function vueConnexion(){
-    $vueConnexion = new Vue( "Connexion");
+    $vueConnexion = new Vue( "Connexion","");
     $vueConnexion->generer(array('contenu'=>$vueConnexion));
     }
 /*
@@ -47,12 +39,12 @@ public function vueConnexion(){
 public function connecter($email,$passe){ 
     if($this->admin->connexion($email,$passe)){
             $admin =$this->admin->getAdmin($email,$passe);
-            $this->getSession()->setAttribut("email",$admin['email']);
-            $this->getSession()->setAttribut("passe",$admin['passe']);
+            $this->setAttribut("email",$admin['email']);
+            $this->setAttribut("passe",$admin['passe']);
             $this->ctrlListeBillet->ListeBillet();
          }
         else{
-        $vueErreur = new Vue( "ConnexionErreur");
+        $vueErreur = new Vue( "ConnexionErreur","");
         $vueErreur->generer(array('contenu'=>$vueErreur));
     
         }
@@ -63,7 +55,7 @@ public function connecter($email,$passe){
 *Appel l'accueil
 */
     public function deconnecter(){
-        $this->getSession()->detruire();
+        $this->detruire();
          $this->ctrlAccueil->accueil(); 
     }
 
