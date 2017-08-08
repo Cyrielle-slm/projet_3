@@ -1,6 +1,6 @@
 <?php
 require_once 'modele/commentaire.php';
-require_once 'vue/vueAdmin.php';
+require_once 'vue/vue.php';
 require_once 'controleurBillet.php';
 
 class ControleurSignale {
