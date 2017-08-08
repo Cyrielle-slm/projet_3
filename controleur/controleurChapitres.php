@@ -19,7 +19,7 @@ class ControleurChapitres {
 */
     public function Chapitres(){
         $chapitres = $this->billetChap->getChapitres();
-        $vue = new Vue( "Chapitres");
+        $vue = new Vue( "Chapitres","");
         $vue->generer(array('billetChap'=>$chapitres));
     }
 
