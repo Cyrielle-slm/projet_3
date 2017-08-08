@@ -1,6 +1,6 @@
 <?php
 require_once 'modele/billet.php';
-require_once 'vue/vueAdmin.php';
+require_once 'vue/vue.php';
 require_once 'modele/commentaire.php';
 
 class ControleurFormAjout {
@@ -13,7 +13,7 @@ class ControleurFormAjout {
 */
     public function FormAjout(){
         $Ajoutbillet = $this->ajoutnew;
-        $vueAdmin = new VueAdmin( "FormAjout");
+        $vueAdmin = new Vue( "FormAjout","Admin");
         $vueAdmin->generer(array('ajoutnew'=>$Ajoutbillet));
     }
 
