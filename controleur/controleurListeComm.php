@@ -1,6 +1,6 @@
 <?php
 require_once 'modele/billet.php';
-require_once 'vue/vueAdmin.php';
+require_once 'vue/vue.php';
 require_once 'modele/commentaire.php';
 
 class ControleurListeComm {
@@ -21,7 +21,7 @@ class ControleurListeComm {
 */
     public function ListeComm(){
         $listeCommentaires = $this->comm->getComm();
-        $vueAdmin = new VueAdmin( "ListeComm");
+        $vueAdmin = new Vue( "ListeComm","Admin");
         $vueAdmin->generer(array('comm' => $listeCommentaires));
     }
 
