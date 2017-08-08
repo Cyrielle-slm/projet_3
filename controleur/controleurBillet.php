@@ -3,7 +3,6 @@
 require_once 'modele/billet.php';
 require_once 'modele/commentaire.php';
 require_once 'vue/vue.php';
-require_once 'vue/vueAdmin.php';
 
 class ControleurBillet {
     private $billet;
@@ -21,13 +20,13 @@ class ControleurBillet {
 /*
 *Appel à la fonction getBillet($idBillet) qui renvoi un seul billet
 *Appel à getCommentaires(*idBillet) qui renvoi les commentaires associés
-*Instancie la classee Vue et prend en paramètre l'action qui dertermine le fichier vue à utiliser
+*Instancie la classee Vue et prend en paramètre l'action qui dertermine le fichier vue à utiliser et gabarit
 *Utilisation de la fonction generer(),qui renvoi la vue (gabarit,partie spécifique)
 */
     public function billet($idBillet){
     $billet= $this->billet->getBillet($idBillet);
     $commentaires = $this->commentaire->getCommentaires($idBillet);
-    $vue = new Vue("Billet"); // Instancie la vue
+    $vue = new Vue("Billet",""); 
     $vue->generer(array('billet'=>$billet,'commentaires' =>$commentaires));
     }
 
