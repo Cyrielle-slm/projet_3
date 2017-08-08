@@ -12,8 +12,9 @@ class Vue {
 /*Constructeur
 *Détermine le fichier de la vue à partir de l'action
 */
-    public function __construct($action){
+    public function __construct($action,$gab){
         $this->fichier= "vue/vue" .$action .".php";
+        $this->gabarit= "vue/" .$gab .".php";
        
     }
 /*
@@ -23,7 +24,7 @@ class Vue {
 */
     public function generer($donnees){
         $contenu = $this->genererFichier($this->fichier,$donnees);
-        $vue= $this->genererFichier('vue/gabarit.php',array('titre'=>$this->titre,'contenu'=>$contenu)); 
+        $vue= $this->genererFichier($this->gabarit,array('titre'=>$this->titre,'contenu'=>$contenu)); 
         echo $vue; 
 
     }
